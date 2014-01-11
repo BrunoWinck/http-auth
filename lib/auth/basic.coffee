@@ -5,13 +5,16 @@ Base = require './base'
 utils = require './utils'
 
 # htpasswd verification is reused.
-htpasswd = require 'htpasswd'
+# htpasswd = require 'htpasswd'
 
 # Basic authentication class.
 class Basic extends Base    
   # Constructor.
   constructor: (@options, @checker) ->
     super @options, @checker
+    # ugly temporary fix
+    htpasswd = require 'htpasswd'
+    
   
   # Processes line from authentication file.
   processLine: (line) ->
